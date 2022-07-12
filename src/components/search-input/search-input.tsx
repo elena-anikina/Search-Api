@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import React from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-
+import {updateSelectAll} from '../../redux-store/slices/select-all-slice';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectorSelectAll} from '../../redux-store/selectors';
 
 export const SearchInput = () => {
-    const [checkAll, setCheckAll] = useState(false);
+    const dispatch = useDispatch();
+    const selectAll = useSelector(selectorSelectAll);
     return (
         <>
         <TextField
@@ -20,8 +23,8 @@ export const SearchInput = () => {
             <Button
                 sx={{marginRight: '10px'}}
                 variant="contained"
-                endIcon={checkAll ? <CheckRoundedIcon /> : null}
-                onClick={() => setCheckAll((state) => !state)}
+                endIcon={selectAll ? <CheckRoundedIcon /> : null}
+                onClick={() => dispatch(updateSelectAll())}
             >
                 Выбрать все
             </Button>

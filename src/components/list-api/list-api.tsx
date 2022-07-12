@@ -1,5 +1,7 @@
 // @ts-nocheck
 import React, {useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {selectorSelectAll} from '../../redux-store/selectors';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,6 +13,8 @@ import {SearchInput} from '../search-input/search-input';
 
 export const ListApi = () => {
 
+    const selectAll = useSelector(selectorSelectAll);
+
     useEffect(() => {
         fetch('https://api.publicapis.org/entries')
             .then((response) => {if (response.ok) {
@@ -18,26 +22,15 @@ export const ListApi = () => {
             }
         })
             .then((result) => {
-                setList(result.entries.slice(0, 10));
+                const list = result.entries.slice(0, 10).map((el) => ({data: el, checked: false}));
+                setList(list);
             });
 
     }, []);
 
     const [checked, setChecked] = useState([0]);
     const [list, setList] = useState([]);
-
-    const handleToggle = (value) => () => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-
-        setChecked(newChecked);
-    };
+    const listArr = list.map((el) => ({data: el, checked: false}));
 
     return (
         <>
@@ -49,15 +42,15 @@ export const ListApi = () => {
                     return (
                         <ListItem
                             key={index}
-                            selected={checked.indexOf(index) !== -1}
+                            selected={selectAll}
                             sx={{marginBottom: '50px'}}
                             disablePadding
                         >
-                            <ListItemButton role={undefined} onClick={handleToggle(index)} dense>
+                            <ListItemButton role={undefined} onClick={() => {}} dense>
                                 <ListItemIcon>
                                     <Checkbox
                                         edge="start"
-                                        checked={checked.indexOf(index) !== -1}
+                                        checked={selectAll}
                                         tabIndex={-1}
                                         disableRipple
                                         inputProps={{ 'aria-labelledby': labelId }}
@@ -65,25 +58,25 @@ export const ListApi = () => {
                                 </ListItemIcon>
                                 <div id={labelId}>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`API: ${el.API}`}
+                                        {`API: ${el.data.API}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`Auth: ${el.Auth || 'no'}`}
+                                        {`Auth: ${el.data.Auth || 'no'}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`Category: ${el.Category}`}
+                                        {`Category: ${el.data.Category}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`Cors: ${el.Cors}`}
+                                        {`Cors: ${el.data.Cors}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`Description: ${el.Description}`}
+                                        {`Description: ${el.data.Description}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`HTTPS: ${el.HTTPS}`}
+                                        {`HTTPS: ${el.data.HTTPS}`}
                                     </Typography>
                                     <Typography variant="body1" gutterBottom component="div">
-                                        {`Link: ${el.Link}`}
+                                        {`Link: ${el.data.Link}`}
                                     </Typography>
                                 </div>
                             </ListItemButton>
