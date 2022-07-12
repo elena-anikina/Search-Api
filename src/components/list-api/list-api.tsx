@@ -12,9 +12,7 @@ import {SearchInput} from '../search-input/search-input';
 
 
 export const ListApi = () => {
-
     const selectAll = useSelector(selectorSelectAll);
-
     useEffect(() => {
         fetch('https://api.publicapis.org/entries')
             .then((response) => {if (response.ok) {
