@@ -1,6 +1,6 @@
 {
   "name": "api-search",
-  "homepage": "https://elena-anikina.github.io/Search-Api/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
