@@ -2,7 +2,7 @@
   "name": "api-search",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://elena-anikina.github.io/Search-Api/",
+  "homepage": ".",
   "dependencies": {
     "@elastic/apm-rum-react": "^1.4.2",
     "@elastic/eui": "^60.1.1",
