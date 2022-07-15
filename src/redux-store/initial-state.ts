@@ -1,3 +1,7 @@
+import {listArr} from "./list";
+
+
 export const initialState = {
-    selectAll: false
+    selectAll: false,
+    list: listArr.entries.map((el) => ({...el, checked: false}))
 };

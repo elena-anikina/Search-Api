@@ -1,8 +1,11 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import SelectAllReducer from './slices/select-all-slice';
+import SelectAllReducer from './reducers/select-all-slice';
+import ListReducer from './reducers/list-slice';
+
 
 const rootReducer = combineReducers({
-    selectAll: SelectAllReducer
+    selectAll: SelectAllReducer,
+    list: ListReducer
 });
 
 export const store = configureStore({

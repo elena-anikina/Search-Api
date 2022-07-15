@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import {updateSelectAll} from '../../redux-store/slices/select-all-slice';
+import {updateSelectAll} from '../../redux-store/reducers/select-all-slice';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectorSelectAll} from '../../redux-store/selectors';
 
