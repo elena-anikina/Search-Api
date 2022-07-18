@@ -7,9 +7,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Checkbox from '@mui/material/Checkbox';
-import Typography from '@mui/material/Typography';
 import {SearchInput} from '../search-input/search-input';
 import {updateList} from "../../redux-store/reducers/list-slice";
+import {ListItemContent} from "./list-item-content";
 
 
 export const ListApi = () => {
@@ -43,27 +43,7 @@ export const ListApi = () => {
                                     />
                                 </ListItemIcon>
                                 <div id={labelId}>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`API: ${el.API}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`Auth: ${el.Auth || 'no'}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`Category: ${el.Category}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`Cors: ${el.Cors}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`Description: ${el.Description}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`HTTPS: ${el.HTTPS}`}
-                                    </Typography>
-                                    <Typography variant="body1" gutterBottom component="div">
-                                        {`Link: ${el.Link}`}
-                                    </Typography>
+                                    <ListItemContent item={el} />
                                 </div>
                             </ListItemButton>
                         </ListItem>

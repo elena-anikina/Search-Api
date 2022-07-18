@@ -1,7 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {initialState} from '../initial-state';
 
-
 export const ListSlice = createSlice({
     name: 'listSlice',
     initialState: initialState.list,
@@ -11,10 +10,15 @@ export const ListSlice = createSlice({
                 if (i === payload) { return {...el, checked: !el.checked} }
                 return el;
             })
+        },
+        updateListSelectAll: (state, {payload}) => {
+            return state.map((el) => {
+                return {...el, checked: !payload}
+            });
         }
     }
 });
 
-export const {updateList} = ListSlice.actions;
+export const {updateList, updateListSelectAll} = ListSlice.actions;
 
 export default ListSlice.reducer;
