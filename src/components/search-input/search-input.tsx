@@ -56,27 +56,6 @@ export const SearchInput = () => {
             margin="normal"
             variant="outlined"
         />
-        <div style={{marginBottom: '50px'}}  aria-label="outlined primary button group">
-            <Button
-                sx={{marginRight: '10px'}}
-                variant="contained"
-                endIcon={selectAll ? <CheckRoundedIcon /> : null}
-                onClick={() => {
-                    dispatch(updateSelectAll());
-                    dispatch(updateListSelectAll(selectAll))
-                }}
-            >
-                Выбрать все
-            </Button>
-            <Button variant="contained" onClick={handleClick}>Добавить в персональный лист</Button>
-            <Snackbar
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-                message={`Количество API, добавленных в ваш персональный лист - ${added}`}
-                action={action}
-            />
-        </div>
         </>
     );
 };

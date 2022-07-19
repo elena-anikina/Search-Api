@@ -16,28 +16,27 @@ type Props = {
 
 
 export const ListItemContent = ({item}: Props) => {
-    console.log('item: ',  item);
     return (
         <>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`API: ${item.API}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`Auth: ${item.Auth || 'no'}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`Category: ${item.Category}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`Cors: ${item.Cors}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`Description: ${item.Description}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`HTTPS: ${item.HTTPS}`}
             </Typography>
-            <Typography variant="body1" gutterBottom component="div">
+            <Typography variant="body1" gutterBottom component={"div"}>
                 {`Link: ${item.Link}`}
             </Typography>
         </>
