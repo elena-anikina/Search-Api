@@ -4,7 +4,6 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import {ListApi} from "../list-api/list-api";
 import {TabPanel} from "./tab-panel";
-import {SearchInput} from "../search-input/search-input";
 import {SelectAddButtons} from "../select-add-buttons/select-add-buttons";
 
 
@@ -27,7 +26,7 @@ export const TabsComponent = () => {
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="Item One" {...a11yProps(0)} />
+                    <Tab label="Лист" {...a11yProps(0)} />
                     <Tab label="Item Two" {...a11yProps(1)} />
                     <Tab label="Item Three" {...a11yProps(2)} />
                 </Tabs>

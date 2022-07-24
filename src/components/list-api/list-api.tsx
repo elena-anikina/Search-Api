@@ -20,8 +20,8 @@ export const ListApi = () => {
 
     return (
         <>
-            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                {listInitial.slice(0, 10).map((el, index) => {
+            <List sx={{ width: '100%', bgcolor: 'inherit'}}>
+                {listInitial.slice(0, 6).map((el, index) => {
                     const labelId = `checkbox-list-label-${index}`;
 
                     return (

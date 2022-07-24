@@ -13,7 +13,7 @@ export const PersonalListPage = () => {
     const listFiltered = list.filter((el: any) => el.checked);
     return (
         <Container maxWidth="sm">
-            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+            <List sx={{ width: '100%', bgcolor: 'inherit' }}>
                 {listFiltered.slice(0, 10).map((el, index) => {
                     const labelId = `checkbox-list-label-${index}`;
 
