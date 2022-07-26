@@ -9,15 +9,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectorList, selectorSelectAll} from "../../redux-store/selectors";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import {updatePersonalListCount} from "../../redux-store/reducers/personal-list-count-slice";
 
 export const SelectAddButtons = () => {
     const dispatch = useDispatch();
     const list = useSelector(selectorList);
+    const personalListCount = list.filter((el) => el.checked).length;
     const selectAll = useSelector(selectorSelectAll);
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
         setOpen(true);
+        dispatch(updatePersonalListCount(personalListCount))
     };
 
     const handleClose = (event: MouseEventHandler<HTMLButtonElement>, reason: string) => {
