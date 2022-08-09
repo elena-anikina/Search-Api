@@ -6,5 +6,6 @@ export const initialState = {
     list: listArr.entries.map((el) => ({...el, checked: false})),
     pagination: 6,
     isDarkTheme: false,
-    personalListCount: 0
+    personalListCount: 0,
+    inputValue: ''
 };

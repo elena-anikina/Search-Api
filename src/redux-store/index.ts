@@ -4,6 +4,7 @@ import ListReducer from './reducers/list-slice';
 import PaginationReducer from './reducers/pagination-slice';
 import IsDarkThemeReducer from './reducers/is-dark-theme-slice';
 import PersonalListCountReducer from './reducers/personal-list-count-slice';
+import InputValueReducer from './reducers/input-value-slice';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     list: ListReducer,
     pagination: PaginationReducer,
     isDarkTheme: IsDarkThemeReducer,
-    personalListCount: PersonalListCountReducer
+    personalListCount: PersonalListCountReducer,
+    inputValue: InputValueReducer
 });
 
 export const store = configureStore({

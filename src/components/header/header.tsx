@@ -41,15 +41,16 @@ export const Header = () => {
             position: 'fixed',
             backdropFilter: 'blur(20px)',
         }}>
+            <Link sx={{margin: '10px'}} to="/"  className="link">
             <Button
                 id="fade-button"
                 aria-controls={undefined}
                 aria-haspopup="true"
                 aria-expanded={undefined}
-                sx={{margin: '10px'}}
             >
                 API SEARCH
             </Button>
+            </Link>
             <div>
                 <ThemeSwitch  sx={{margin: '10px'}} checked={isDarkTheme} onChange={() => dispatch(updateIsDarkTheme())} />
                 <StyledBadge badgeContent={personalListCount}>

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectorSelectAll, selectorList} from '../../redux-store/selectors';
+import {selectorSelectAll, selectorList, selectorInputValue} from '../../redux-store/selectors';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -17,11 +17,14 @@ export const ListApi = () => {
     const dispatch = useDispatch();
     const selectAll = useSelector(selectorSelectAll);
     const listInitial = useSelector(selectorList);
+    const inputValue = useSelector(selectorInputValue);
+
+    const listFiltered = listInitial.filter((el) => el.API.toLowerCase().includes(inputValue.toLowerCase()));
 
     return (
         <>
             <List sx={{ width: '100%', bgcolor: 'inherit'}}>
-                {listInitial.slice(0, 6).map((el, index) => {
+                {listFiltered.slice(0, 6).map((el, index) => {
                     const labelId = `checkbox-list-label-${index}`;
 
                     return (

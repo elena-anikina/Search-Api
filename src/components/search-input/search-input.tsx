@@ -1,28 +1,18 @@
 // @ts-nocheck
 import React, {MouseEventHandler} from 'react';
 import TextField from '@mui/material/TextField';
-import {useSelector} from 'react-redux';
-import {selectorSelectAll, selectorList} from '../../redux-store/selectors';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateInputValue} from '../../redux-store/reducers/input-value-slice';
+import {selectorSelectAll, selectorList, selectorInputValue} from '../../redux-store/selectors';
 
 
 export const SearchInput = () => {
 
+    const dispatch = useDispatch();
+
     const list = useSelector(selectorList);
+    const inputValue = useSelector(selectorInputValue);
     const added = list.filter((el) => el.checked).length;
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event: MouseEventHandler<HTMLButtonElement>, reason: string) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
 
     return (
         <>
@@ -33,6 +23,8 @@ export const SearchInput = () => {
             type="search"
             margin="normal"
             variant="outlined"
+            onChange={(e) => dispatch(updateInputValue(e.target.value))}
+            value={inputValue}
         />
         </>
     );

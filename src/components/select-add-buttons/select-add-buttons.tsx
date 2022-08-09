@@ -50,7 +50,8 @@ export const SelectAddButtons = () => {
         <div style={{marginBottom: '50px'}}  aria-label="outlined primary button group">
             <Button
                 sx={{marginRight: '10px'}}
-                variant="contained"
+                variant="outlined"
+                size="small"
                 endIcon={selectAll ? <CheckRoundedIcon /> : null}
                 onClick={() => {
                     dispatch(updateSelectAll());
@@ -59,7 +60,7 @@ export const SelectAddButtons = () => {
             >
                 Выбрать все
             </Button>
-            <Button variant="contained" onClick={handleClick}>Добавить в персональный лист</Button>
+            <Button variant="outlined" size="small" onClick={handleClick}>Добавить в персональный лист</Button>
             <Snackbar
                 open={open}
                 autoHideDuration={6000}
