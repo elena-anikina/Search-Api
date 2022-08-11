@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import {ListApi} from "../list-api/list-api";
 import {TabPanel} from "./tab-panel";
 import {SelectAddButtons} from "../select-add-buttons/select-add-buttons";
+import {TableApi} from "../table-api/table-api";
 
 
 const a11yProps = (index: number) => {
@@ -36,7 +37,7 @@ export const TabsComponent = () => {
                 <ListApi />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Лист
+                <TableApi />
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
