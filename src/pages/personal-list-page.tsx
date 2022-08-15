@@ -3,6 +3,8 @@ import Container from "@mui/material/Container";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {useSelector} from "react-redux";
 import {selectorList} from "../redux-store/selectors";
 import {ListItemContent} from "../components/list-api/list-item-content";
@@ -19,6 +21,11 @@ export const PersonalListPage = () => {
 
                     return (
                         <ListItem
+                            secondaryAction={
+                                <IconButton edge="end" aria-label="delete">
+                                    <DeleteIcon />
+                                </IconButton>
+                            }
                             key={index}
                             sx={{marginBottom: '50px'}}
                             disablePadding

@@ -1,9 +1,9 @@
 // @ts-nocheck
-import React, {MouseEventHandler} from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateInputValue} from '../../redux-store/reducers/input-value-slice';
-import {selectorSelectAll, selectorList, selectorInputValue} from '../../redux-store/selectors';
+import {selectorList, selectorInputValue} from '../../redux-store/selectors';
 
 
 export const SearchInput = () => {
@@ -12,7 +12,6 @@ export const SearchInput = () => {
 
     const list = useSelector(selectorList);
     const inputValue = useSelector(selectorInputValue);
-    const added = list.filter((el) => el.checked).length;
 
     return (
         <>
